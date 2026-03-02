@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# pcop — Pi Co-Processor CLI wrapper
+# Invokes the TypeScript entry point via tsx
+exec tsx "$(dirname "$(readlink -f "$0")")/pcop.ts" "$@"

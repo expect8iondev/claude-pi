@@ -1,0 +1,35 @@
+name: "Self-Audit Pipeline"
+description: "Pi audits the pcop codebase that controls it — meta-engineering"
+
+stages:
+  - name: scout
+    prompt: |
+      Read every .ts file in the src/ directory. For each file, list:
+      1. All exported functions and their signatures
+      2. Any untyped 'any' usage
+      3. Missing error handling (try/catch blocks around I/O operations)
+      Output a structured summary as a numbered list.
+    model: gemini-flash
+
+  - name: analyze
+    prompt: |
+      Based on the scout results:
+      {{scout.response}}
+
+      Identify the TOP 3 most impactful improvements ranked by severity:
+      1. Type safety gaps (any usage that could cause runtime errors)
+      2. Missing error boundaries that could crash the process
+      3. Edge cases in async/parallel code
+
+      For each, provide: file, line description, severity (critical/high/medium), and a one-line fix description.
+    model: gemini-flash
+
+  - name: fix
+    prompt: |
+      Based on this analysis:
+      {{analyze.response}}
+
+      Implement ONLY the single highest-severity fix. Edit the file directly.
+      After editing, verify the fix by reading the modified file.
+      Explain what you changed and why.
+    model: gemini-flash

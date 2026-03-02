@@ -1,0 +1,68 @@
+# Model specifications and routing rules for pcop
+# Pricing as of Feb 2026
+
+models:
+  gemini-flash:
+    provider: google
+    model_id: gemini-2.5-flash
+    context_window: 1048576
+    input_price_per_1m: 0.15
+    output_price_per_1m: 0.60
+    strengths:
+      - speed
+      - cost-effective
+      - bulk operations
+    default_for:
+      - run
+      - burst
+      - analysis
+
+  gemini-pro:
+    provider: google
+    model_id: gemini-2.5-pro
+    context_window: 1048576
+    input_price_per_1m: 1.25
+    output_price_per_1m: 10.00
+    strengths:
+      - complex reasoning
+      - architecture
+      - refactoring
+    default_for:
+      - meta
+      - pipeline (complex stages)
+
+  claude-sonnet:
+    provider: anthropic
+    model_id: claude-sonnet-4-5
+    context_window: 200000
+    input_price_per_1m: 3.00
+    output_price_per_1m: 15.00
+    strengths:
+      - code generation
+      - instruction following
+    default_for: []
+
+  claude-opus:
+    provider: anthropic
+    model_id: claude-opus-4-6
+    context_window: 200000
+    input_price_per_1m: 15.00
+    output_price_per_1m: 75.00
+    strengths:
+      - complex agentic tasks
+      - nuanced reasoning
+    default_for: []
+
+routing:
+  default: gemini-flash
+  complex_threshold: 500000  # chars — switch to pro above this
+  pro_signals:
+    - architect
+    - security
+    - refactor
+    - complex
+    - debug
+
+budget:
+  daily_limit: 5.00
+  session_default: 1.00

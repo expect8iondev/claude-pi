@@ -1,0 +1,27 @@
+name: "Scout-Plan-Build"
+description: "Three-stage pipeline: reconnaissance, planning, implementation"
+
+stages:
+  - name: scout
+    prompt: "Find all relevant files and list their exports, dependencies, and key functions. Be thorough."
+    model: gemini-flash
+
+  - name: plan
+    prompt: |
+      Based on the scout results:
+      {{scout.response}}
+
+      Write a detailed implementation plan with:
+      1. Files to modify (with specific line ranges)
+      2. New files to create
+      3. Dependencies needed
+      4. Test strategy
+    model: gemini-pro
+
+  - name: build
+    prompt: |
+      Execute this implementation plan:
+      {{plan.response}}
+
+      Implement each step precisely. Run tests after each change.
+    model: gemini-pro

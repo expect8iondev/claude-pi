@@ -1,0 +1,26 @@
+{
+  "name": "claude-pi",
+  "version": "1.0.0",
+  "description": "Pi Agent Co-Processor for Claude Code",
+  "type": "module",
+  "bin": {
+    "pcop": "./bin/pcop"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.19.11",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
