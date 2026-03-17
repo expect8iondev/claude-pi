@@ -74,7 +74,7 @@ Any `provider/model-id` string works if the API key is configured.
 ## Setup
 
 ```bash
-git clone https://github.com/HeraclesBass/claude-pi.git
+git clone https://github.com/herakles-dev/claude-pi.git
 cd claude-pi
 npm install
 
@@ -126,4 +126,4 @@ TypeScript, Node.js, Commander.js
 
 ---
 
-Built by [D. Michael Piscitelli](https://github.com/HeraclesBass) | [herakles.dev](https://herakles.dev)
+Built by [D. Michael Piscitelli](https://github.com/herakles-dev) | [herakles.dev](https://herakles.dev)
